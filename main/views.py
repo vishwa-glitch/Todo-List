@@ -12,7 +12,6 @@ from django.contrib.auth import logout
 @login_required
 def combined_view(request):  # home
     if not request.user.is_authenticated:
-        messages.info(request, "Please log in to view and manage your to-do lists.")
         return redirect('login')  # Make sure this matches the name in your urls.py
     todolists = request.user.todolist.all().order_by('-id')
     if request.method == "POST":
@@ -55,3 +54,4 @@ def create_todolist(request):  # create
 def logout_view(request):
     logout(request)
     return render(request, 'main/logout.html') 
+

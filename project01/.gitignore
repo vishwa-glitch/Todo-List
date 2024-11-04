@@ -1,0 +1,22 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+.DS_Store
+
+# VS Code settings and workspace
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# Migrations
+**/migrations/*.py
+**/migrations/*.pyc
+
+# Static and media files
+staticfiles/
+media/

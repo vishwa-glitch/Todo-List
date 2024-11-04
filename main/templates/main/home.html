@@ -1,7 +1,5 @@
 {% extends 'main/base.html' %}
-
 {% block title %}All ToDo Lists{% endblock %}
-
 {% block content %}
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&family=Poppins:wght@400;600&display=swap');
@@ -85,11 +83,11 @@
         background-color: #038f5d;
     }
 
-    .motto {
-        font-family: 'Pacifico', cursive;
+    .description {
+        font-family: 'Roboto', sans-serif;
         color: #4a4a4a;
         margin: 15px 0;
-        font-size: 1.1em;
+        font-size: 1em;
         text-align: center;
         padding: 10px;
         background-color: #f8f8f8;
@@ -118,7 +116,6 @@
         }
     }
 </style>
-
 <div class="container">
     {% for todolist in todolists %}
         <div class="card">
@@ -137,7 +134,7 @@
                     {% endfor %}
                 </ul>
                 {% if todolist.description %}
-                    <p class="motto">"Motto:- {{ todolist.description }}"</p>
+                    <p class="description">Description: {{ todolist.description }}</p>
                 {% endif %}
                 <input type="text" name="new_item_{{ todolist.id }}" placeholder="Add new item">
                 <button type="submit" name="new_item">Add</button>
