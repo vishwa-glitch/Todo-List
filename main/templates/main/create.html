@@ -1,0 +1,91 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create Task{% endblock %}
+
+{% block content %}
+<div class="create-todo-container">
+    <h1 class="page-title">Create a New Task</h1>
+    <div class="form-container">
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form.name|as_crispy_field }}
+                    {{ form.description|as_crispy_field }}
+                </div>
+                
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Task</button>
+        </form>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="tips-container">
+                <h2>Tips for Effective Tasks</h2>
+                <ul>
+                    <li>Be specific about what needs to be done</li>
+                    <li>Break large tasks into smaller, manageable steps</li>
+                    <li>Set realistic deadlines</li>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .create-todo-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .page-title {
+        color: #3498db;
+        margin-bottom: 20px;
+    }
+    .form-container {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+        background-color: #3498db;
+        border-color: #3498db;
+        margin-top: 10px;
+    }
+    .btn-primary:hover {
+        background-color: #2980b9;
+        border-color: #2980b9;
+    }
+    .tips-container, .tags-container {
+        background-color: #e8f4f8;
+        padding: 20px;
+        border-radius: 5px;
+        height: 100%;
+    }
+    .tips-container h2, .tags-container h2 {
+        color: #2980b9;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    .tips-container ul {
+        padding-left: 20px;
+    }
+    .tips-container li {
+        margin-bottom: 5px;
+    }
+    .tag {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 0.8em;
+        margin: 2px;
+        cursor: pointer;
+    }
+</style>
+
+{% endblock %}
