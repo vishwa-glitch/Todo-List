@@ -1,0 +1,5 @@
+Django
+gunicorn
+whitenoise  # for serving static files
+psycopg2-binary  # for PostgreSQL support
+python-decouple  # for environment variables (optional)
