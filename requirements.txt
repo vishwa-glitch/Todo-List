@@ -1,0 +1,7 @@
+Django
+gunicorn
+whitenoise
+dj-database-url
+psycopg2-binary
+django-crispy-forms
+crispy-bootstrap4  # if you're using Bootstrap 4
