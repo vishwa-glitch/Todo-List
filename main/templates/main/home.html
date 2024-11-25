@@ -115,11 +115,29 @@
             max-width: 100%;
         }
     }
+    .delete-link {
+        display: inline-block;
+        padding: 8px 15px;
+        background-color: #e63946; /* Red color for delete */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    
+    .delete-link:hover {
+        background-color: #d62828; /* Darker red on hover */
+        transform: scale(1.10); /* Slightly enlarges on hover */
+    }
+    
 </style>
 <div class="container">
     {% for todolist in todolists %}
         <div class="card">
             <h2>{{ todolist.name }}</h2>
+            <a href="{% url 'delete_todolist' todolist.id %}" class="delete-link">Delete List</a>
             <form method="POST" action="#">
                 {% csrf_token %}
                 <input type="hidden" name="list_id" value="{{ todolist.id }}">
@@ -128,11 +146,13 @@
                         <li>
                             <input type="checkbox" name="c{{ item.id }}" {% if item.complete %}checked{% endif %}>
                             {{ item.text }}
+                            <a href="{% url 'delete_item' item.id %}" onclick="return confirm('Are you sure you want to delete this item?');" style="color: red; text-decoration: none; margin-left: 10px;">Delete</a>
                         </li>
                     {% empty %}
                         <li>No items in this list</li>
                     {% endfor %}
                 </ul>
+                
                 {% if todolist.description %}
                     <p class="description">Description: {{ todolist.description }}</p>
                 {% endif %}

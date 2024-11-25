@@ -66,6 +66,15 @@ def create_todolist(request):  # create
     # Render the create to-do list page with the form
     return render(request, 'main/create.html', {'form': form})
 
+def delete_item(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    item.delete()
+    return redirect('combined_view')
+
+def delete_todolist(request, todolist_id):
+    todolist = get_object_or_404(ToDoList, id=todolist_id)
+    todolist.delete()
+    return redirect('combined_view')  #
 # View to log out the user
 @login_required
 def logout_view(request):

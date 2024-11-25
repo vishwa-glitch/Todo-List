@@ -26,7 +26,6 @@ SECRET_KEY = 'django-insecure-h==p(mz%mm9tf30drro6np29$z&!)4(ah5#%t1_w%u3wecb!@_
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'todo-list-hbqg.onrender.com'
 ]
 
 
