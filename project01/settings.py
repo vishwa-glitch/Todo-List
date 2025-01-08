@@ -134,3 +134,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Or 'bootstrap5', depending on your prefer
 
 LOGIN_URL = 'login'  # This should match the name you've given to your login URL pattern
 LOGIN_REDIRECT_URL = "/"
+import environ
+
+env = environ.Env()
+environ.Env.read_env()  # Reads the .env file
+
+SECRET_KEY = env("SECRET_KEY")
