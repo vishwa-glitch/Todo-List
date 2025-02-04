@@ -34,13 +34,7 @@ Follow these steps to set up and run the app locally:
 1. **Clone the Repository**  
    Open your terminal and clone the repository:
    ```bash
-   git clone <repository-url>
-   ```
-   Replace `<repository-url>` with the URL of the GitHub repository.
-
-2. **Navigate to the Project Directory**
-   ```bash
-   cd <project-directory>
+   git clone https://github.com/vishwa-glitch/Todo-List
    ```
 
 3. **Create a Virtual Environment (Optional)**  
